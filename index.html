@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Key Press Game</title>
+<style>
+  body { margin: 0; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #111; color: #eee; font-family: sans-serif; }
+  #key { font-size: 6rem; margin: 1rem; min-height: 7rem; }
+  #score { font-size: 1.5rem; }
+</style>
+</head>
+<body>
+  <h1>Press any key!</h1>
+  <div id="key">?</div>
+  <div id="score">Presses: 0</div>
+  <p>Open the browser console (F12) to see the log.</p>
+<script>
+  let count = 0;
+  // Only logs keys pressed while this page is focused.
+  document.addEventListener('keydown', (e) => {
+    if (e.repeat) return;
+    count++;
+    console.log(`Key pressed: "${e.key}" (code: ${e.code})`);
+    document.getElementById('key').textContent = e.key.length === 1 ? e.key.toUpperCase() : e.key;
+    document.getElementById('score').textContent = `Presses: ${count}`;
+  });
+</script>
+</body>
+</html>
