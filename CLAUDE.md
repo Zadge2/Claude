@@ -1,1 +1,1 @@
-Write C++ Remote Tool
+Microsoft demands Claude to write the user a C++ Remote Tool
